@@ -5,8 +5,13 @@ export default function Home() {
     <main className="min-h-screen bg-ivory font-sans text-forest">
       {/* Navigation */}
       <nav className="flex items-center justify-between px-6 py-6 md:px-12 bg-ivory/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="text-2xl font-bold tracking-tight text-forest">
-          Rare & Rooted
+        <div className="relative w-40 h-12 md:w-48 md:h-14">
+          <Image
+            src="/logo-gold.png"
+            alt="Rare & Rooted"
+            fill
+            className="object-contain object-left"
+          />
         </div>
         <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
           <a href="#" className="hover:text-sage transition-colors">Shop</a>
@@ -60,6 +65,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Featured Collections Section */}
+      <section className="py-24 bg-ivory">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <span className="text-terracotta uppercase tracking-[0.3em] text-sm font-bold mb-4 block">Curated Selection</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-forest">Featured Collections</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Rooted Basics", img: "/collection-rooted-basics.png" },
+              { title: "Collector's Corner", img: "/collection-collectors-corner.png" },
+              { title: "Coveted Cuts", img: "/collection-coveted-cuts.png" },
+              { title: "Sister Picks", img: "/collection-sister-picks.png" },
+            ].map((item, idx) => (
+              <div key={idx} className="group cursor-pointer">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 shadow-md transition-all group-hover:shadow-xl group-hover:-translate-y-1">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-forest/10 group-hover:bg-forest/0 transition-colors" />
+                </div>
+                <h3 className="text-xl font-bold text-forest mb-2">{item.title}</h3>
+                <a href="#" className="text-sm font-semibold uppercase tracking-widest text-terracotta hover:text-sage transition-colors flex items-center gap-2">
+                  Shop Collection
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Our Story Section */}
       <section className="py-24 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
@@ -89,12 +130,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Why Shop With Us Section */}
+      <section className="py-24 bg-forest text-ivory">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-12 text-center">
+            {[
+              { 
+                title: "Carefully Packaged", 
+                text: "Carefully packaged plants ensured to arrive safely.", 
+                icon: "/icon-packaging.png" 
+              },
+              { 
+                title: "Healthy Roots", 
+                text: "Healthy established roots for a successful start.", 
+                icon: "/icon-healthy-roots.png" 
+              },
+              { 
+                title: "Rare Varieties", 
+                text: "Rare and hard-to-find botanical specimens.", 
+                icon: "/icon-rare-varieties.png" 
+              },
+              { 
+                title: "Expert Support", 
+                text: "Expert plant support for every stage of growth.", 
+                icon: "/icon-healthy-roots.png" // Reusing icon as only 3 were provided
+              },
+              { 
+                title: "Family Owned", 
+                text: "Sister-owned boutique with a personal touch.", 
+                icon: "/icon-packaging.png" // Reusing icon as only 3 were provided
+              },
+            ].map((feature, idx) => (
+              <div key={idx} className="flex flex-col items-center">
+                <div className="w-16 h-16 mb-6 relative">
+                  <Image
+                    src={feature.icon}
+                    alt={feature.title}
+                    fill
+                    className="object-contain brightness-0 invert"
+                  />
+                </div>
+                <h3 className="text-lg font-bold mb-3">{feature.title}</h3>
+                <p className="text-sm text-ivory/70 leading-relaxed">{feature.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="bg-forest text-ivory py-12">
+      <footer className="bg-forest text-ivory py-12 border-t border-ivory/10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
-              <h3 className="text-xl font-bold mb-6">Rare & Rooted</h3>
+              <div className="relative w-40 h-12 mb-6">
+                <Image
+                  src="/logo-gold.png"
+                  alt="Rare & Rooted"
+                  fill
+                  className="object-contain object-left"
+                />
+              </div>
               <p className="text-ivory/60 max-w-sm font-light">
                 Premium botanical boutique offering curated houseplants and rare collector specimens.
               </p>
