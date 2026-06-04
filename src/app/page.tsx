@@ -2,8 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { products } from "@/data/products";
+import { AddToCartButton } from "@/components/AddToCartButton";
 
 export default function Home() {
+  const sisterPicks = products.filter(p => p.category === 'Sister Picks');
   return (
     <main className="min-h-screen bg-ivory font-sans text-forest">
       <Navbar />
@@ -295,6 +298,50 @@ export default function Home() {
                 Join
               </button>
             </form>
+          </div>
+        </div>
+      </section>
+
+      {/* Sister Picks Section */}
+      <section className="py-24 bg-ivory">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-xl">
+              <span className="text-terracotta uppercase tracking-[0.3em] text-sm font-bold mb-4 block">Hand-Picked for You</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-forest mb-4">Sister Picks</h2>
+              <p className="text-forest/70 leading-relaxed">
+                A curated selection of our personal favorites. These plants are chosen for their unique beauty and reliable growth.
+              </p>
+            </div>
+            <Link href="/shop?category=Sister%20Picks" className="text-forest font-bold uppercase tracking-widest text-sm border-b-2 border-forest pb-1 hover:text-sage hover:border-sage transition-all whitespace-nowrap">
+              Shop All Picks
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            {sisterPicks.map((product) => (
+              <div key={product.id} className="group">
+                <Link href={`/products/${product.id}`} className="relative aspect-[4/5] block overflow-hidden rounded-[2rem] mb-6 bg-cream shadow-sm transition-all group-hover:shadow-xl group-hover:-translate-y-1">
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute top-6 right-6">
+                    <AddToCartButton product={product} className="opacity-0 group-hover:opacity-100 scale-90 group-hover:scale-100 transition-all duration-300" />
+                  </div>
+                </Link>
+                <div className="flex justify-between items-start px-2">
+                  <div>
+                    <h3 className="text-xl font-bold text-forest mb-1">{product.name}</h3>
+                    <p className="text-sm text-forest/40 italic mb-4">{product.scientificName}</p>
+                    <p className="text-forest/70 line-clamp-2 text-sm max-w-xs">{product.description}</p>
+                  </div>
+                  <p className="text-xl font-bold text-forest">${product.price}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

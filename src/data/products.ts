@@ -109,6 +109,30 @@ export const products: Product[] = [
     image: '/products/coveted-cuts/syngonium-albo-cutting.png'
   },
   {
+    id: 'calathea-orbifolia',
+    name: 'Calathea Orbifolia',
+    scientificName: 'Goeppertia orbifolia',
+    price: 42,
+    category: 'Sister Picks',
+    description: 'A personal favorite for its oversized, silvery-green leaves with distinct striping. A true statement piece.',
+    careLevel: 'Intermediate',
+    light: 'Bright indirect light',
+    water: 'Keep soil consistently moist; high humidity',
+    image: '/collection-sister-picks.png' // Using the collection image as a placeholder for now
+  },
+  {
+    id: 'hoya-carnosa-compacta',
+    name: 'Hindu Rope Hoya',
+    scientificName: 'Hoya carnosa compacta',
+    price: 38,
+    category: 'Sister Picks',
+    description: 'A unique variety with curly, rope-like leaves. It produces stunning waxy, star-shaped flowers with a sweet fragrance.',
+    careLevel: 'Easy',
+    light: 'Bright indirect light',
+    water: 'Allow to dry out completely between waterings',
+    image: '/care-propagation.png' // Placeholder
+  },
+  {
     id: 'rare-rooted-mix',
     name: 'Rare & Rooted Mix',
     category: 'Accessories',
