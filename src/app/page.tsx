@@ -7,7 +7,7 @@ export default function Home() {
       <nav className="flex items-center justify-between px-6 py-6 md:px-12 bg-ivory/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="relative w-40 h-12 md:w-48 md:h-14">
           <Image
-            src="/logo-gold.png"
+            src="/logo-gold-transparent.png"
             alt="Rare & Rooted"
             fill
             className="object-contain object-left"
@@ -178,6 +178,146 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Customer Testimonials Section */}
+      <section className="py-24 bg-cream overflow-hidden">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="text-center mb-16">
+            <span className="text-terracotta uppercase tracking-[0.3em] text-sm font-bold mb-4 block">Kind Words</span>
+            <h2 className="text-3xl md:text-5xl font-bold text-forest">From Our Community</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {[
+              {
+                name: "Sarah M.",
+                role: "Rare Plant Collector",
+                text: "The variegated Monstera arrived in perfect condition. The packaging was so secure, not a single leaf was damaged. Truly a premium experience!",
+                img: "/lifestyle-living-room.png"
+              },
+              {
+                name: "James L.",
+                role: "New Plant Parent",
+                text: "I was nervous about my first 'expensive' plant, but the care guide that came with my Philodendron was so helpful. It's thriving!",
+                img: "/lifestyle-study.png"
+              },
+              {
+                name: "Elena R.",
+                role: "Gift Giver",
+                text: "I sent a 'Rooted Basic' bundle to my sister for her birthday. She loved the boutique feel and the plant was incredibly healthy.",
+                img: "/lifestyle-kitchen.png"
+              }
+            ].map((testimonial, idx) => (
+              <div key={idx} className="bg-ivory p-8 rounded-3xl shadow-sm relative">
+                <div className="relative w-full h-48 mb-8 rounded-2xl overflow-hidden">
+                  <Image
+                    src={testimonial.img}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-terracotta fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-forest/80 italic mb-8">"{testimonial.text}"</p>
+                <div>
+                  <p className="font-bold text-forest">{testimonial.name}</p>
+                  <p className="text-sm text-sage font-medium">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Plant Care Resources Section */}
+      <section className="py-24 bg-ivory">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+            <div className="max-w-xl">
+              <span className="text-terracotta uppercase tracking-[0.3em] text-sm font-bold mb-4 block">Learn & Grow</span>
+              <h2 className="text-3xl md:text-5xl font-bold text-forest mb-4">Plant Care Resources</h2>
+              <p className="text-forest/70 leading-relaxed">
+                We don't just sell plants; we ensure you have the knowledge to help them thrive. Explore our expert-led guides and tutorials.
+              </p>
+            </div>
+            <button className="text-forest font-bold uppercase tracking-widest text-sm border-b-2 border-forest pb-1 hover:text-sage hover:border-sage transition-all whitespace-nowrap">
+              View All Resources
+            </button>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { 
+                title: "Beginner Care Guides", 
+                category: "Basics",
+                img: "/care-beginner-guide.png" 
+              },
+              { 
+                title: "Repotting Tips", 
+                category: "Technique",
+                img: "/care-repotting.png" 
+              },
+              { 
+                title: "Propagation Tutorials", 
+                category: "Propagation",
+                img: "/care-propagation.png" 
+              },
+              { 
+                title: "Rare Plant Spotlight", 
+                category: "Collectors",
+                img: "/care-rare-spotlight.png" 
+              },
+            ].map((resource, idx) => (
+              <div key={idx} className="group cursor-pointer">
+                <div className="relative aspect-square overflow-hidden rounded-2xl mb-6">
+                  <Image
+                    src={resource.img}
+                    alt={resource.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-ivory/90 backdrop-blur-sm text-forest text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                      {resource.category}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-lg font-bold text-forest group-hover:text-terracotta transition-colors">{resource.title}</h3>
+                <p className="text-sm text-sage font-medium mt-1">Read Article &rarr;</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Email Signup Section */}
+      <section className="py-24 bg-sage/20">
+        <div className="container mx-auto px-6 md:px-12 text-center">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-forest mb-6">Join the Rare & Rooted Community</h2>
+            <p className="text-lg text-forest/70 mb-10 leading-relaxed">
+              Get first access to rare drops, plant care tips, and exclusive offers delivered straight to your inbox.
+            </p>
+            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+              <input 
+                type="email" 
+                placeholder="Enter your email" 
+                className="flex-grow px-6 py-4 rounded-full bg-ivory border-none focus:ring-2 focus:ring-forest outline-none transition-all shadow-sm"
+                required
+              />
+              <button className="bg-forest text-ivory px-10 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-sage transition-all shadow-lg">
+                Join
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-forest text-ivory py-12 border-t border-ivory/10">
         <div className="container mx-auto px-6 md:px-12">
@@ -185,7 +325,7 @@ export default function Home() {
             <div className="col-span-1 md:col-span-2">
               <div className="relative w-40 h-12 mb-6">
                 <Image
-                  src="/logo-gold.png"
+                  src="/logo-gold-transparent.png"
                   alt="Rare & Rooted"
                   fill
                   className="object-contain object-left"
