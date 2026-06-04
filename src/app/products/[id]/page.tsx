@@ -73,14 +73,18 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     <p className="font-medium">{product.careLevel}</p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Light</h3>
-                  <p className="text-forest/70">{product.light}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Water</h3>
-                  <p className="text-forest/70">{product.water}</p>
-                </div>
+                {product.light && (
+                  <div>
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Light</h3>
+                    <p className="text-forest/70">{product.light}</p>
+                  </div>
+                )}
+                {product.water && (
+                  <div>
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Water</h3>
+                    <p className="text-forest/70">{product.water}</p>
+                  </div>
+                )}
               </div>
             </div>
 

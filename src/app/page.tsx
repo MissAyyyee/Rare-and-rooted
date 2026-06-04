@@ -58,6 +58,8 @@ export default function Home() {
               { title: "Collector's Corner", img: "/collection-collectors-corner.png", query: "Collector's Corner" },
               { title: "Coveted Cuts", img: "/collection-coveted-cuts.png", query: "Coveted Cuts" },
               { title: "Sister Picks", img: "/collection-sister-picks.png", query: "Sister Picks" },
+              { title: "Accessories", img: "/merchandise/rare-rooted-mix-pouch.png", query: "Accessories" },
+              { title: "Merchandise", img: "/merchandise/branded-tote-bag.png", query: "Merchandise" },
             ].map((item, idx) => (
               <Link key={idx} href={`/shop?category=${encodeURIComponent(item.query)}`} className="group cursor-pointer">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 shadow-md transition-all group-hover:shadow-xl group-hover:-translate-y-1">

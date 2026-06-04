@@ -3,11 +3,11 @@ export interface Product {
   name: string;
   scientificName?: string;
   price: number;
-  category: 'Rooted Basics' | 'Collector\'s Corner' | 'Coveted Cuts' | 'Sister Picks';
+  category: 'Rooted Basics' | 'Collector\'s Corner' | 'Coveted Cuts' | 'Sister Picks' | 'Accessories' | 'Merchandise';
   description: string;
-  careLevel: 'Easy' | 'Intermediate' | 'Advanced';
-  light: string;
-  water: string;
+  careLevel: 'Easy' | 'Intermediate' | 'Advanced' | 'N/A';
+  light?: string;
+  water?: string;
   image: string;
 }
 
@@ -107,5 +107,41 @@ export const products: Product[] = [
     light: 'Bright indirect light',
     water: 'Keep in water or moist moss to root',
     image: '/products/coveted-cuts/syngonium-albo-cutting.png'
+  },
+  {
+    id: 'rare-rooted-mix',
+    name: 'Rare & Rooted Mix',
+    category: 'Accessories',
+    price: 28,
+    description: 'Our custom-blended chunky substrate, optimized for aroids and tropical plants. Provides excellent drainage and aeration.',
+    careLevel: 'N/A',
+    image: '/merchandise/rare-rooted-mix-pouch.png'
+  },
+  {
+    id: 'the-prop-station',
+    name: 'The Prop Station',
+    category: 'Accessories',
+    price: 45,
+    description: 'A complete propagation kit including glass tubes, gold-colored plant snips, and a minimalist wooden stand.',
+    careLevel: 'N/A',
+    image: '/merchandise/the-prop-station-kit.png'
+  },
+  {
+    id: 'rare-rooted-tote',
+    name: 'Rare & Rooted Canvas Tote',
+    category: 'Merchandise',
+    price: 32,
+    description: 'A high-quality canvas tote featuring our signature botanical cloche logo. Perfect for your next plant haul.',
+    careLevel: 'N/A',
+    image: '/merchandise/branded-tote-bag.png'
+  },
+  {
+    id: 'cloche-sweatshirt',
+    name: 'Boutique Cloche Sweatshirt',
+    category: 'Merchandise',
+    price: 65,
+    description: 'Premium terracotta-colored sweatshirt with a minimalist cloche illustration embroidered on the chest.',
+    careLevel: 'N/A',
+    image: '/merchandise/plant-parent-apparel.png'
   }
 ];

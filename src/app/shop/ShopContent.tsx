@@ -13,7 +13,7 @@ export default function ShopContent() {
     ? products.filter((p) => p.category === categoryFilter)
     : products;
 
-  const categories = ["Rooted Basics", "Collector's Corner", "Coveted Cuts"];
+  const categories = ["Rooted Basics", "Collector's Corner", "Coveted Cuts", "Accessories", "Merchandise"];
 
   return (
     <div className="container mx-auto px-6 py-16 md:px-12 md:py-24">
@@ -95,9 +95,9 @@ export default function ShopContent() {
       
       {filteredProducts.length === 0 && (
         <div className="py-24 text-center">
-          <p className="text-xl text-forest/50">No plants found in this category.</p>
+          <p className="text-xl text-forest/50">No items found in this category.</p>
           <Link href="/shop" className="text-terracotta font-bold mt-4 inline-block hover:underline">
-            View all plants
+            View all items
           </Link>
         </div>
       )}
