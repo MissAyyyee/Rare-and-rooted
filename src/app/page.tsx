@@ -1,33 +1,12 @@
 import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-ivory font-sans text-forest">
-      {/* Navigation */}
-      <nav className="flex items-center justify-between px-6 py-6 md:px-12 bg-ivory/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="relative w-40 h-12 md:w-48 md:h-14">
-          <Image
-            src="/logo-gold-transparent.png"
-            alt="Rare & Rooted"
-            fill
-            className="object-contain object-left"
-          />
-        </div>
-        <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
-          <a href="#" className="hover:text-sage transition-colors">Shop</a>
-          <a href="#" className="hover:text-sage transition-colors">Rare Finds</a>
-          <a href="#" className="hover:text-sage transition-colors">Our Story</a>
-          <a href="#" className="hover:text-sage transition-colors">Care Guide</a>
-        </div>
-        <div className="flex items-center space-x-4">
-          <button className="p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-          </button>
-          <button className="p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          </button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden">
@@ -54,12 +33,12 @@ export default function Home() {
               Curated houseplants and rare finds for every stage of your plant journey.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-forest text-ivory px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-sage transition-all shadow-lg">
+              <Link href="/shop" className="bg-forest text-ivory px-8 py-4 rounded-full text-center text-sm font-semibold uppercase tracking-widest hover:bg-sage transition-all shadow-lg">
                 Shop Plants
-              </button>
-              <button className="bg-ivory/10 backdrop-blur-md border border-ivory/30 text-ivory px-8 py-4 rounded-full text-sm font-semibold uppercase tracking-widest hover:bg-ivory hover:text-forest transition-all">
+              </Link>
+              <Link href="/shop?category=Collector's Corner" className="bg-ivory/10 backdrop-blur-md border border-ivory/30 text-ivory px-8 py-4 rounded-full text-center text-sm font-semibold uppercase tracking-widest hover:bg-ivory hover:text-forest transition-all">
                 Explore Rare Finds
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -75,12 +54,12 @@ export default function Home() {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { title: "Rooted Basics", img: "/collection-rooted-basics.png" },
-              { title: "Collector's Corner", img: "/collection-collectors-corner.png" },
-              { title: "Coveted Cuts", img: "/collection-coveted-cuts.png" },
-              { title: "Sister Picks", img: "/collection-sister-picks.png" },
+              { title: "Rooted Basics", img: "/collection-rooted-basics.png", query: "Rooted Basics" },
+              { title: "Collector's Corner", img: "/collection-collectors-corner.png", query: "Collector's Corner" },
+              { title: "Coveted Cuts", img: "/collection-coveted-cuts.png", query: "Coveted Cuts" },
+              { title: "Sister Picks", img: "/collection-sister-picks.png", query: "Sister Picks" },
             ].map((item, idx) => (
-              <div key={idx} className="group cursor-pointer">
+              <Link key={idx} href={`/shop?category=${encodeURIComponent(item.query)}`} className="group cursor-pointer">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl mb-6 shadow-md transition-all group-hover:shadow-xl group-hover:-translate-y-1">
                   <Image
                     src={item.img}
@@ -91,18 +70,18 @@ export default function Home() {
                   <div className="absolute inset-0 bg-forest/10 group-hover:bg-forest/0 transition-colors" />
                 </div>
                 <h3 className="text-xl font-bold text-forest mb-2">{item.title}</h3>
-                <a href="#" className="text-sm font-semibold uppercase tracking-widest text-terracotta hover:text-sage transition-colors flex items-center gap-2">
+                <div className="text-sm font-semibold uppercase tracking-widest text-terracotta group-hover:text-sage transition-colors flex items-center gap-2">
                   Shop Collection
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                </a>
-              </div>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
       {/* Our Story Section */}
-      <section className="py-24 bg-cream">
+      <section id="our-story" className="py-24 bg-cream">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex justify-center">
@@ -153,12 +132,12 @@ export default function Home() {
               { 
                 title: "Expert Support", 
                 text: "Expert plant support for every stage of growth.", 
-                icon: "/icon-healthy-roots.png" // Reusing icon as only 3 were provided
+                icon: "/icon-healthy-roots.png" 
               },
               { 
                 title: "Family Owned", 
                 text: "Sister-owned boutique with a personal touch.", 
-                icon: "/icon-packaging.png" // Reusing icon as only 3 were provided
+                icon: "/icon-packaging.png" 
               },
             ].map((feature, idx) => (
               <div key={idx} className="flex flex-col items-center">
@@ -235,7 +214,7 @@ export default function Home() {
       </section>
 
       {/* Plant Care Resources Section */}
-      <section className="py-24 bg-ivory">
+      <section id="care-resources" className="py-24 bg-ivory">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div className="max-w-xl">
@@ -318,47 +297,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-forest text-ivory py-12 border-t border-ivory/10">
-        <div className="container mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-            <div className="col-span-1 md:col-span-2">
-              <div className="relative w-40 h-12 mb-6">
-                <Image
-                  src="/logo-gold-transparent.png"
-                  alt="Rare & Rooted"
-                  fill
-                  className="object-contain object-left"
-                />
-              </div>
-              <p className="text-ivory/60 max-w-sm font-light">
-                Premium botanical boutique offering curated houseplants and rare collector specimens.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest mb-6">Explore</h4>
-              <ul className="space-y-4 text-ivory/60 text-sm">
-                <li><a href="#" className="hover:text-ivory transition-colors">Shop All</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">New Drops</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">Rare Varieties</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">Accessories</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-sm font-bold uppercase tracking-widest mb-6">Support</h4>
-              <ul className="space-y-4 text-ivory/60 text-sm">
-                <li><a href="#" className="hover:text-ivory transition-colors">Care Tips</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">Shipping Info</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">Returns</a></li>
-                <li><a href="#" className="hover:text-ivory transition-colors">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-12 border-t border-ivory/10 text-center text-sm text-ivory/40">
-            &copy; {new Date().getFullYear()} Rare & Rooted. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </main>
   );
 }
