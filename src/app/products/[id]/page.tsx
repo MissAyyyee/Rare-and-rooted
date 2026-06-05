@@ -5,6 +5,8 @@ import { products } from "@/data/products";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+import { AddToCartButton } from "@/components/AddToCartButton";
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -73,21 +75,23 @@ export default async function ProductDetailPage({ params }: PageProps) {
                     <p className="font-medium">{product.careLevel}</p>
                   </div>
                 </div>
-                <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Light</h3>
-                  <p className="text-forest/70">{product.light}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Water</h3>
-                  <p className="text-forest/70">{product.water}</p>
-                </div>
+                {product.light && (
+                  <div>
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Light</h3>
+                    <p className="text-forest/70">{product.light}</p>
+                  </div>
+                )}
+                {product.water && (
+                  <div>
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-terracotta mb-3">Water</h3>
+                    <p className="text-forest/70">{product.water}</p>
+                  </div>
+                )}
               </div>
             </div>
 
             <div className="mt-auto space-y-4">
-              <button className="w-full bg-forest text-ivory py-5 rounded-full font-bold uppercase tracking-widest hover:bg-sage transition-all shadow-lg text-sm">
-                Add to Cart
-              </button>
+              <AddToCartButton product={product} showQuantity={true} />
               <p className="text-center text-xs text-forest/40 uppercase tracking-widest">
                 Secure checkout • Greenhouse fresh • Safe arrival guarantee
               </p>
@@ -103,14 +107,17 @@ export default async function ProductDetailPage({ params }: PageProps) {
               .filter((p) => p.category === product.category && p.id !== product.id)
               .slice(0, 4)
               .map((p) => (
-                <Link key={p.id} href={`/products/${p.id}`} className="group">
-                  <div className="relative aspect-square overflow-hidden rounded-2xl mb-4 bg-cream transition-all group-hover:-translate-y-1">
+                <Link key={p.id} href={`/products/${p.id}`} className="group relative">
+                  <div className="relative aspect-square overflow-hidden rounded-2xl mb-4 bg-cream transition-all group-hover:-translate-y-1 shadow-sm group-hover:shadow-md">
                     <Image
                       src={p.image}
                       alt={p.name}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <AddToCartButton product={p} />
+                    </div>
                   </div>
                   <h3 className="font-bold text-forest group-hover:text-terracotta transition-colors">{p.name}</h3>
                   <p className="text-sm text-forest/60">${p.price}</p>

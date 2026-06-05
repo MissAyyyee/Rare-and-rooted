@@ -4,6 +4,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/data/products";
+import { AddToCartButton } from "@/components/AddToCartButton";
 
 export default function ShopContent() {
   const searchParams = useSearchParams();
@@ -13,7 +14,7 @@ export default function ShopContent() {
     ? products.filter((p) => p.category === categoryFilter)
     : products;
 
-  const categories = ["Rooted Basics", "Collector's Corner", "Coveted Cuts"];
+  const categories = ["Rooted Basics", "Collector's Corner", "Coveted Cuts", "Accessories", "Merchandise"];
 
   return (
     <div className="container mx-auto px-6 py-16 md:px-12 md:py-24">
@@ -68,10 +69,11 @@ export default function ShopContent() {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute top-4 right-4">
+              <div className="absolute top-4 right-4 flex flex-col gap-2">
                 <span className="bg-ivory/90 backdrop-blur-sm text-forest text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
                   {product.careLevel}
                 </span>
+                <AddToCartButton product={product} className="opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
             </div>
             <div className="flex justify-between items-start">
@@ -95,9 +97,9 @@ export default function ShopContent() {
       
       {filteredProducts.length === 0 && (
         <div className="py-24 text-center">
-          <p className="text-xl text-forest/50">No plants found in this category.</p>
+          <p className="text-xl text-forest/50">No items found in this category.</p>
           <Link href="/shop" className="text-terracotta font-bold mt-4 inline-block hover:underline">
-            View all plants
+            View all items
           </Link>
         </div>
       )}
