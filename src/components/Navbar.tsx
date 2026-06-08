@@ -21,7 +21,7 @@ export default function Navbar() {
         <Link href="/shop" className="hover:text-sage transition-colors text-forest">Shop</Link>
         <Link href="/shop?category=Collector's Corner" className="hover:text-sage transition-colors text-forest">Rare Finds</Link>
         <Link href="/#our-story" className="hover:text-sage transition-colors text-forest">Our Story</Link>
-        <Link href="/#care-resources" className="hover:text-sage transition-colors text-forest">Care Guide</Link>
+        <Link href="/care" className="hover:text-sage transition-colors text-forest">Care Guide</Link>
       </div>
       <div className="flex items-center space-x-4 text-forest">
         <button className="p-2 hover:text-sage transition-colors">

@@ -91,10 +91,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="w-full md:w-1/2 flex justify-center">
               <div className="relative w-72 h-72 md:w-96 md:h-96 rounded-full overflow-hidden border-8 border-ivory shadow-2xl">
-                 <div className="absolute inset-0 bg-sage/20 flex items-center justify-center text-forest/40 text-center p-8">
-                   [Image of sisters Katie & Amanda]
-                 </div>
-                 {/* Once we have a photo of Katie and Amanda, it would go here */}
+                 <Image
+                    src="/sisters-katie-amanda.png"
+                    alt="Sisters Katie & Amanda"
+                    fill
+                    className="object-cover"
+                 />
               </div>
             </div>
             <div className="w-full md:w-1/2">
@@ -176,19 +178,19 @@ export default function Home() {
                 name: "Sarah M.",
                 role: "Rare Plant Collector",
                 text: "The variegated Monstera arrived in perfect condition. The packaging was so secure, not a single leaf was damaged. Truly a premium experience!",
-                img: "/lifestyle-living-room.png"
+                img: "/testimonials/lifestyle-living-room.png"
               },
               {
                 name: "James L.",
                 role: "New Plant Parent",
                 text: "I was nervous about my first 'expensive' plant, but the care guide that came with my Philodendron was so helpful. It's thriving!",
-                img: "/lifestyle-study.png"
+                img: "/testimonials/lifestyle-study.png"
               },
               {
                 name: "Elena R.",
                 role: "Gift Giver",
                 text: "I sent a 'Rooted Basic' bundle to my sister for her birthday. She loved the boutique feel and the plant was incredibly healthy.",
-                img: "/lifestyle-kitchen.png"
+                img: "/testimonials/lifestyle-kitchen.png"
               }
             ].map((testimonial, idx) => (
               <div key={idx} className="bg-ivory p-8 rounded-3xl shadow-sm relative">
@@ -229,9 +231,9 @@ export default function Home() {
                 We don't just sell plants; we ensure you have the knowledge to help them thrive. Explore our expert-led guides and tutorials.
               </p>
             </div>
-            <button className="text-forest font-bold uppercase tracking-widest text-sm border-b-2 border-forest pb-1 hover:text-sage hover:border-sage transition-all whitespace-nowrap">
+            <Link href="/care" className="text-forest font-bold uppercase tracking-widest text-sm border-b-2 border-forest pb-1 hover:text-sage hover:border-sage transition-all whitespace-nowrap">
               View All Resources
-            </button>
+            </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -239,25 +241,29 @@ export default function Home() {
               { 
                 title: "Beginner Care Guides", 
                 category: "Basics",
+                slug: "beginner-care-guides",
                 img: "/care-beginner-guide.png" 
               },
               { 
                 title: "Repotting Tips", 
                 category: "Technique",
+                slug: "repotting-tips",
                 img: "/care-repotting.png" 
               },
               { 
                 title: "Propagation Tutorials", 
                 category: "Propagation",
+                slug: "propagation-tutorials",
                 img: "/care-propagation.png" 
               },
               { 
                 title: "Rare Plant Spotlight", 
                 category: "Collectors",
+                slug: "rare-plant-spotlight",
                 img: "/care-rare-spotlight.png" 
               },
             ].map((resource, idx) => (
-              <div key={idx} className="group cursor-pointer">
+              <Link key={idx} href={`/care/${resource.slug}`} className="group cursor-pointer">
                 <div className="relative aspect-square overflow-hidden rounded-2xl mb-6">
                   <Image
                     src={resource.img}
@@ -273,7 +279,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-lg font-bold text-forest group-hover:text-terracotta transition-colors">{resource.title}</h3>
                 <p className="text-sm text-sage font-medium mt-1">Read Article &rarr;</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

@@ -31,10 +31,10 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-widest mb-6">Support</h4>
             <ul className="space-y-4 text-ivory/60 text-sm">
-              <li><Link href="/#care-resources" className="hover:text-ivory transition-colors">Care Tips</Link></li>
+              <li><Link href="/care" className="hover:text-ivory transition-colors">Care Tips</Link></li>
               <li><Link href="#" className="hover:text-ivory transition-colors">Shipping Info</Link></li>
               <li><Link href="#" className="hover:text-ivory transition-colors">Returns</Link></li>
-              <li><Link href="#" className="hover:text-ivory transition-colors">Contact Us</Link></li>
+              <li><Link href="/contact" className="hover:text-ivory transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
