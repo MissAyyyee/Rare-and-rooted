@@ -19,8 +19,11 @@ export default function Navbar() {
       </Link>
       <div className="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
         <Link href="/shop" className="hover:text-sage transition-colors text-forest">Shop</Link>
+        <Link href="/drops" className="hover:text-terracotta transition-colors text-forest flex items-center gap-1.5">
+          Drops
+          <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse"></span>
+        </Link>
         <Link href="/shop?category=Collector's Corner" className="hover:text-sage transition-colors text-forest">Rare Finds</Link>
-        <Link href="/#our-story" className="hover:text-sage transition-colors text-forest">Our Story</Link>
         <Link href="/care" className="hover:text-sage transition-colors text-forest">Care Guide</Link>
       </div>
       <div className="flex items-center space-x-4 text-forest">

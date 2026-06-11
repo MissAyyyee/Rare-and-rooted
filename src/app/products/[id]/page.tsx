@@ -40,13 +40,23 @@ export default async function ProductDetailPage({ params }: PageProps) {
                 src={product.image}
                 alt={product.name}
                 fill
-                className="object-cover"
+                className={`object-cover ${product.stock === 0 ? 'grayscale opacity-80' : ''}`}
                 priority
               />
-              <div className="absolute top-8 right-8">
+              <div className="absolute top-8 right-8 flex flex-col items-end gap-3">
                 <span className="bg-ivory/90 backdrop-blur-sm text-forest text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-lg">
                   {product.category}
                 </span>
+                {product.stock === 0 && (
+                  <div className="relative w-24 h-24 drop-shadow-2xl animate-in zoom-in duration-700">
+                    <Image 
+                      src="/campaigns/rare-drops/sold-out-badge.png" 
+                      alt="Sold Out" 
+                      fill 
+                      className="object-contain"
+                    />
+                  </div>
+                )}
               </div>
             </div>
           </div>

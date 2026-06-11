@@ -210,8 +210,28 @@ export default function ShopContent() {
                     src={product.image}
                     alt={product.name}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`object-cover transition-transform duration-700 group-hover:scale-110 ${product.stock === 0 ? 'grayscale opacity-60' : ''}`}
                   />
+                  
+                  {/* Status Badges */}
+                  <div className="absolute top-4 left-4 flex flex-col gap-2">
+                    {product.category === 'Rare Drops' && (
+                      <span className="bg-terracotta text-ivory text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
+                        Rare Drop
+                      </span>
+                    )}
+                    {product.stock === 0 && (
+                      <div className="relative w-16 h-16 md:w-20 md:h-20 drop-shadow-xl animate-in zoom-in duration-500">
+                        <Image 
+                          src="/campaigns/rare-drops/sold-out-badge.png" 
+                          alt="Sold Out" 
+                          fill 
+                          className="object-contain"
+                        />
+                      </div>
+                    )}
+                  </div>
+
                   <div className="absolute top-4 right-4 flex flex-col gap-2">
                     {product.careLevel !== 'N/A' && (
                       <span className="bg-ivory/90 backdrop-blur-sm text-forest text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm self-end">
