@@ -3,12 +3,13 @@ export interface Product {
   name: string;
   scientificName?: string;
   price: number;
-  category: 'Rooted Basics' | 'Collector\'s Corner' | 'Coveted Cuts' | 'Sister Picks' | 'Accessories' | 'Merchandise';
+  category: 'Rooted Basics' | 'Collector\'s Corner' | 'Coveted Cuts' | 'Sister Picks' | 'Accessories' | 'Merchandise' | 'Rare Drops';
   description: string;
   careLevel: 'Easy' | 'Intermediate' | 'Advanced' | 'N/A';
   light?: string;
   water?: string;
   image: string;
+  stock: number;
 }
 
 export const products: Product[] = [
@@ -22,7 +23,8 @@ export const products: Product[] = [
     careLevel: 'Easy',
     light: 'Low to bright indirect light',
     water: 'Allow soil to dry out between waterings',
-    image: '/products/rooted-basics/golden-pothos.png'
+    image: '/products/rooted-basics/golden-pothos.png',
+    stock: 15
   },
   {
     id: 'heartleaf-philodendron',
@@ -34,7 +36,8 @@ export const products: Product[] = [
     careLevel: 'Easy',
     light: 'Low to bright indirect light',
     water: 'Water when the top inch of soil is dry',
-    image: '/products/rooted-basics/heartleaf-philodendron.png'
+    image: '/products/rooted-basics/heartleaf-philodendron.png',
+    stock: 20
   },
   {
     id: 'snake-plant',
@@ -46,7 +49,8 @@ export const products: Product[] = [
     careLevel: 'Easy',
     light: 'Any light level, from low to direct sun',
     water: 'Allow soil to dry completely; water every 2-4 weeks',
-    image: '/products/rooted-basics/snake-plant.png'
+    image: '/products/rooted-basics/snake-plant.png',
+    stock: 12
   },
   {
     id: 'monstera-albo',
@@ -58,7 +62,8 @@ export const products: Product[] = [
     careLevel: 'Advanced',
     light: 'Bright indirect light (vital for variegation)',
     water: 'Water when top 2 inches are dry; avoid overwatering',
-    image: '/products/collectors-corner/monstera-albo.png'
+    image: '/products/collectors-corner/monstera-albo.png',
+    stock: 3
   },
   {
     id: 'anthurium-warocqueanum',
@@ -70,7 +75,8 @@ export const products: Product[] = [
     careLevel: 'Advanced',
     light: 'Bright indirect light, high humidity',
     water: 'Keep soil consistently moist but not soggy',
-    image: '/products/collectors-corner/anthurium-warocqueanum.png'
+    image: '/products/collectors-corner/anthurium-warocqueanum.png',
+    stock: 0
   },
   {
     id: 'philodendron-pink-princess',
@@ -82,7 +88,8 @@ export const products: Product[] = [
     careLevel: 'Intermediate',
     light: 'Bright indirect light',
     water: 'Water when top 50-75% of soil is dry',
-    image: '/products/collectors-corner/philodendron-pink-princess.png'
+    image: '/products/collectors-corner/philodendron-pink-princess.png',
+    stock: 8
   },
   {
     id: 'monstera-adansonii-cutting',
@@ -94,7 +101,8 @@ export const products: Product[] = [
     careLevel: 'Intermediate',
     light: 'Bright indirect light',
     water: 'Keep in water until roots are 2-3 inches long',
-    image: '/products/coveted-cuts/monstera-adansonii-cutting.png'
+    image: '/products/coveted-cuts/monstera-adansonii-cutting.png',
+    stock: 25
   },
   {
     id: 'syngonium-albo-cutting',
@@ -106,7 +114,8 @@ export const products: Product[] = [
     careLevel: 'Intermediate',
     light: 'Bright indirect light',
     water: 'Keep in water or moist moss to root',
-    image: '/products/coveted-cuts/syngonium-albo-cutting.png'
+    image: '/products/coveted-cuts/syngonium-albo-cutting.png',
+    stock: 10
   },
   {
     id: 'calathea-orbifolia',
@@ -118,7 +127,8 @@ export const products: Product[] = [
     careLevel: 'Intermediate',
     light: 'Bright indirect light',
     water: 'Keep soil consistently moist; high humidity',
-    image: '/collection-sister-picks.png' // Using the collection image as a placeholder for now
+    image: '/collection-sister-picks.png',
+    stock: 6
   },
   {
     id: 'hoya-carnosa-compacta',
@@ -130,7 +140,8 @@ export const products: Product[] = [
     careLevel: 'Easy',
     light: 'Bright indirect light',
     water: 'Allow to dry out completely between waterings',
-    image: '/care-propagation.png' // Placeholder
+    image: '/care-propagation.png',
+    stock: 4
   },
   {
     id: 'rare-rooted-mix',
@@ -139,7 +150,8 @@ export const products: Product[] = [
     price: 28,
     description: 'Our custom-blended chunky substrate, optimized for aroids and tropical plants. Provides excellent drainage and aeration.',
     careLevel: 'N/A',
-    image: '/merchandise/rare-rooted-mix-pouch.png'
+    image: '/merchandise/rare-rooted-mix-pouch.png',
+    stock: 50
   },
   {
     id: 'the-prop-station',
@@ -148,7 +160,8 @@ export const products: Product[] = [
     price: 45,
     description: 'A complete propagation kit including glass tubes, gold-colored plant snips, and a minimalist wooden stand.',
     careLevel: 'N/A',
-    image: '/merchandise/the-prop-station-kit.png'
+    image: '/merchandise/the-prop-station-kit.png',
+    stock: 15
   },
   {
     id: 'rare-rooted-tote',
@@ -157,7 +170,8 @@ export const products: Product[] = [
     price: 32,
     description: 'A high-quality canvas tote featuring our signature botanical cloche logo. Perfect for your next plant haul.',
     careLevel: 'N/A',
-    image: '/merchandise/branded-tote-bag.png'
+    image: '/merchandise/branded-tote-bag.png',
+    stock: 100
   },
   {
     id: 'cloche-sweatshirt',
@@ -166,6 +180,33 @@ export const products: Product[] = [
     price: 65,
     description: 'Premium terracotta-colored sweatshirt with a minimalist cloche illustration embroidered on the chest.',
     careLevel: 'N/A',
-    image: '/merchandise/plant-parent-apparel.png'
+    image: '/merchandise/plant-parent-apparel.png',
+    stock: 30
+  },
+  {
+    id: 'emerald-pothos-albo',
+    name: 'Emerald Pothos Albo',
+    scientificName: 'Epipremnum aureum \'Emerald Albo\'',
+    price: 180,
+    category: 'Rare Drops',
+    description: 'Part of the Emerald Collection. A rare variant of the Golden Pothos with deep emerald green and crisp white variegation.',
+    careLevel: 'Intermediate',
+    light: 'Bright indirect light',
+    water: 'Allow soil to dry out between waterings',
+    image: '/campaigns/rare-drops/emerald-collection-identity.png',
+    stock: 5
+  },
+  {
+    id: 'monstera-mint-cutting',
+    name: 'Monstera Mint Cutting',
+    scientificName: 'Monstera deliciosa \'Mint\'',
+    price: 1200,
+    category: 'Rare Drops',
+    description: 'Highly rare mint variegation on a Monstera deliciosa. A pinnacle specimen for the serious collector.',
+    careLevel: 'Advanced',
+    light: 'Bright indirect light',
+    water: 'Keep top 2 inches dry between waterings',
+    image: '/campaigns/rare-drops/drop-countdown-hero.png',
+    stock: 0
   }
 ];
